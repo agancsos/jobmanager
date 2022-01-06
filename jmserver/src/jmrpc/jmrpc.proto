@@ -1,0 +1,50 @@
+syntax = "proto3";
+option go_package = "./jmrpc";
+
+// Service declarations
+service CompanyService {
+	rpc GetCompanies(EmptyMessage)                    returns (JsonMessage) {};
+	rpc AddCompany(JsonMessage)                    returns (BooleanMessage) {}; 
+	rpc UpdateCompany(JsonMessage)                 returns (BooleanMessage) {};
+	rpc HasCompany(StringMessage)                  returns (BooleanMessage) {};
+	rpc RemoveCompany(JsonMessage)                 returns (BooleanMessage) {};
+}
+
+service ResultsService {
+	rpc GetResults(GetResultsMessage)             returns (JsonMessage) {};
+	rpc AddResult(JsonMessage)                    returns (BooleanMessage) {};
+	rpc UpdateResult(JsonMessage)                 returns (BooleanMessage) {};
+	rpc RemoveResult(JsonMessage)                 returns (BooleanMessage) {};
+	rpc MarkApplied(JsonMessage)                  returns (BooleanMessage) {};
+	rpc MarkOffered(JsonMessage)                  returns (BooleanMessage) {};
+	rpc MarkAccepted(JsonMessage)                 returns (BooleanMessage) {};
+	rpc MarkRead(JsonMessage)                     returns (BooleanMessage) {};
+	rpc MarkRejected(JsonMessage)                 returns (BooleanMessage) {};
+}
+/*****************************************************************************/
+
+// Message definitions
+message EmptyMessage {
+}
+
+message StringMessage {
+    optional string value = 1;
+}
+
+message BooleanMessage {
+    optional bool status = 1;
+}
+
+message JsonMessage {
+    optional string json = 1;
+}
+
+message NumericMessage {
+    optional int32 value = 1;
+}
+
+message GetResultsMessage {
+	optional int32 id     = 1;
+	optional int32 method = 2;
+}
+/*****************************************************************************/
