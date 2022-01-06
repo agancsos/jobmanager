@@ -5,10 +5,12 @@ public class CompanyService {
     private DataService data;
     private static CompanyService instance;
     private ConfigurationService cs;
-
+    private String[] bannedCompanies;
+	
     private CompanyService() {
         this.data = DataService.getInstance();
         this.cs = ConfigurationService.getInstance(null);
+	this.bannedCompanies = this.cs.getProperty("BannedCompanies").split(",");
     }
 
     public static CompanyService getInstance() {
@@ -23,7 +25,7 @@ public class CompanyService {
     }
 
     public Integer add(Company company) {
-		if (!this.contains(company) && !this.cs.getProperty("safeMode").equals("1")) {
+		if (!this.contains(company) && !this.cs.getProperty("safeMode").equals("1") && !this.bannedCompanies.contains(company.getName())) {
 			if (this.data.runServiceQuery("INSERT INTO COMPANY (COMPANY_NAME, COMPANY_STREET, COMPANY_CITY, COMPANY_STATE, COMPANY_COUNTRY, COMPANY_DESCRIPTION, COMPANY_INDUSTRY, COMPANY_EMPLOYEES, COMPANY_RATING, COMPANY_ISPUBLIC) VALUES ("
 				+ "'" + company.getName() + "'"
 				+ ",'" + company.getStreet() + "'"
