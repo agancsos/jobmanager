@@ -32,6 +32,7 @@ public enum ResultState : Int, CaseIterable {
     case OFFERED
     case ACCEPTED
     case REJECTED
+    case ARCHIVED
 }
 
 public enum ApplicationMode : Int, CaseIterable {
