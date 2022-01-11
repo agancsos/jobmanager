@@ -35,7 +35,7 @@ public class CustomActionService {
         
         mainMenu.item(withTitle: "Window")?.submenu?.addItem(NSMenuItem(title: "Refresh with Full List", action: #selector(refresh), keyEquivalent: "R"));
         mainMenu.item(withTitle: "Window")?.submenu?.item(withTitle: "Refresh with Full List")?.target = self;
-        mainMenu.item(withTitle: "Window")?.submenu?.item(withTitle: "Refresh with Full List")?.keyEquivalentModifierMask = [.option, .shift];
+        mainMenu.item(withTitle: "Window")?.submenu?.item(withTitle: "Refresh with Full List")?.keyEquivalentModifierMask = [.option, .command];
         
         // Log Viewer
         mainMenu.item(withTitle: "Window")?.submenu?.addItem(NSMenuItem(title: "Log Viewer", action: #selector(showLogViewer), keyEquivalent: "L"));
