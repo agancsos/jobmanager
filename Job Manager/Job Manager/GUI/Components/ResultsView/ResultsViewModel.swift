@@ -123,6 +123,12 @@ public class ResultsViewModel : NSTableView, NSTableViewDataSource, NSTableViewD
                 else if (event.keyCode == 0x0F) {
                     ResultService.markRejected(a: self.items[self.selectedRow]);
                 }
+                
+                // Archived (i)
+                else if (event.keyCode == 0x022) {
+                    self.items[self.selectedRow].state = .ARCHIVED;
+                    ResultService.updateResult(a: self.items[self.selectedRow]);
+                }
             }
             else if (event.modifierFlags.contains(.command) && event.keyCode == 51) {
                 if (self.selectedRow != self.editedRow) {
