@@ -22,7 +22,7 @@ public class CompanyService {
     }
 
     public boolean contains(Company company) {
-        return this.data.serviceQuery(String.format("SELECT 1 FROM COMPANY WHERE COMPANY_NAME = '%s'", company.getName())).getRows().size() > 0;
+        return this.data.serviceQuery(String.format("SELECT 1 FROM COMPANY WHERE COMPANY_NAME = '%s' OR COMPANY_NAME = 'Z%s'", company.getName(), company.getName())).getRows().size() > 0;
     }
 
     public Integer add(Company company) {
