@@ -147,7 +147,7 @@ public final class ResultService {
     }
     
     public static func addResult(a : Result) {
-        let sql = "INSERT INTO RESULT (PROFILE_ID, POSTED_DATE, RESULT_APPLIED, RESULT_TITLE, RESULT_DESCRIPTION, RESULT_REQUIRED, RESULT_OPTIONAL, RESULT_BENEFITS, RESULT_OTHERDETAILS, RESULT_MIN_YEARS_NEEDED, RESULT_SOURCE_ENDPOINT, RESULT_BASE_ENDPOINT, RESULT_STATE, LAST_UPDATED_DATE, RESULT_CODE, COMPANY_ID) VALUES ('\(a.profile.profileId)','\(a.postedDate)','0','\(a.title)','\(a.description)','\(a.required)','\(a.optional)','\(a.benefits)','\(a.otherDetails)','\(a.minYearsNeeded)','\(a.sourceEndpoint)','\(a.baseEndpoint.endpointId)','\(a.state.rawValue)','\(a.lastUpdatedDate)', '\(a.code)', '\(a.company.companyId)')";
+        let sql = "INSERT INTO RESULT (PROFILE_ID, POSTED_DATE, RESULT_APPLIED, RESULT_TITLE, RESULT_DESCRIPTION, RESULT_REQUIRED, RESULT_OPTIONAL, RESULT_BENEFITS, RESULT_OTHERDETAILS, RESULT_MIN_YEARS_NEEDED, RESULT_SOURCE_ENDPOINT, RESULT_BASE_ENDPOINT, RESULT_STATE, RESULT_CODE, COMPANY_ID) VALUES ('\(a.profile.profileId)','\(a.postedDate)','0','\(a.title)','\(a.description)','\(a.required)','\(a.optional)','\(a.benefits)','\(a.otherDetails)','\(a.minYearsNeeded)','\(a.sourceEndpoint)','\(a.baseEndpoint.endpointId)','\(a.state.rawValue)', '\(a.code)', '\(a.company.companyId)')";
         _ = dataService.runServiceQuery(query: sql);
         updateToServer(result: a);
     }
@@ -194,7 +194,7 @@ public final class ResultService {
     }
     
     public static func updateResult(a: Result) {
-        let sql = "UPDATE RESULT SET COMPANY_ID = '\(a.company.companyId)', PROFILE_ID = '\(a.profile.profileId)', POSTED_DATE = '\(a.postedDate)', RESULT_APPLIED = '0', RESULT_TITLE = '\(a.title)', RESULT_DESCRIPTION = '\(a.description)', RESULT_REQUIRED = '\(a.required)', RESULT_OPTIONAL = '\(a.optional)', RESULT_BENEFITS = '\(a.benefits)', RESULT_OTHERDETAILS = '\(a.otherDetails)', RESULT_MIN_YEARS_NEEDED = '\(a.minYearsNeeded)', RESULT_CODE='\(a.code)',RESULT_APPLIED = '\(a.applied ? "1" : "0")', RESULT_SOURCE_ENDPOINT = '\(a.sourceEndpoint)', RESULT_BASE_ENDPOINT = '\(a.baseEndpoint.endpointId)', RESULT_STATE = '\(a.state.rawValue)', LAST_UPDATED_DATE = '\(a.lastUpdatedDate)' WHERE RESULT_ID = '\(a.resultId)'";
+        let sql = "UPDATE RESULT SET COMPANY_ID = '\(a.company.companyId)', PROFILE_ID = '\(a.profile.profileId)', POSTED_DATE = '\(a.postedDate)', RESULT_APPLIED = '0', RESULT_TITLE = '\(a.title)', RESULT_DESCRIPTION = '\(a.description)', RESULT_REQUIRED = '\(a.required)', RESULT_OPTIONAL = '\(a.optional)', RESULT_BENEFITS = '\(a.benefits)', RESULT_OTHERDETAILS = '\(a.otherDetails)', RESULT_MIN_YEARS_NEEDED = '\(a.minYearsNeeded)', RESULT_CODE='\(a.code)',RESULT_APPLIED = '\(a.applied ? "1" : "0")', RESULT_SOURCE_ENDPOINT = '\(a.sourceEndpoint)', RESULT_BASE_ENDPOINT = '\(a.baseEndpoint.endpointId)', RESULT_STATE = '\(a.state.rawValue)', LAST_UPDATED_DATE = CURRENT_TIMESTAMP WHERE RESULT_ID = '\(a.resultId)'";
         _ = dataService.runServiceQuery(query: sql);
         updateToServer(result: a);
     }
