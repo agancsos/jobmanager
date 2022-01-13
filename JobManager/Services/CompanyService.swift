@@ -110,7 +110,7 @@ public final class CompanyService {
     }
     
     public static func updateCompany(a : Company) {
-        _ = dataService.runServiceQuery(query: "UPDATE COMPANY SET COMPANY_NAME = '\(a.name)', COMPANY_STREET = '\(a.street)', COMPANY_CITY = '\(a.city)', COMPANY_STATE = '\(a.state)', COMPANY_COUNTRY = '\(a.country)', COMPANY_DESCRIPTION = '\(a.description)', COMPANY_INDUSTRY = '\(a.industry)', COMPANY_EMPLOYEES = '\(a.employees)', COMPANY_RATING = '\(a.rating)', COMPANY_ISPUBLIC = '\(a.isPublic ? "1" : "0")', COMPANY_APPLICANT_ENDPOINT = '\(a.applicantEndpoint)' WHERE COMPANY_ID = '\(a.companyId)'");
+        _ = dataService.runServiceQuery(query: "UPDATE COMPANY SET COMPANY_NAME = '\(a.name)', COMPANY_STREET = '\(a.street)', COMPANY_CITY = '\(a.city)', COMPANY_STATE = '\(a.state)', COMPANY_COUNTRY = '\(a.country)', COMPANY_DESCRIPTION = '\(a.description)', COMPANY_INDUSTRY = '\(a.industry)', COMPANY_EMPLOYEES = '\(a.employees)', COMPANY_RATING = '\(a.rating)', COMPANY_ISPUBLIC = '\(a.isPublic ? "1" : "0")', COMPANY_APPLICANT_ENDPOINT = '\(a.applicantEndpoint)', LAST_UPDATED_DATE = CURRENT_TIMESTAMP WHERE COMPANY_ID = '\(a.companyId)'");
         updateToServer(company: a);
     }
     
