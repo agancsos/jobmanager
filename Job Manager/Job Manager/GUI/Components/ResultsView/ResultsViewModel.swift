@@ -125,7 +125,7 @@ public class ResultsViewModel : NSTableView, NSTableViewDataSource, NSTableViewD
                 }
                 
                 // Archived (i)
-                else if (event.keyCode == 0x022) {
+                else if (event.keyCode == 0x22) {
                     self.items[self.selectedRow].state = .ARCHIVED;
                     ResultService.updateResult(a: self.items[self.selectedRow]);
                 }
