@@ -15,11 +15,11 @@ class MobileSettingsViewModel : MobileFeatureViewModel, UITableViewDelegate, UIT
 	var tableView   : UITableView = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
 	var loggedIn    : Bool = false;
 	var settings    : [SettingItem] = [
-        SettingItem(name: SR.keyTraceLevel, placeholder: SR.keyTraceLevel, options: ["0", "1", "2", "3", "4"], type: .LIST, label: SR.keyTraceLevel),
-        SettingItem(name: SR.keyBannedCompanies, placeholder: "", options: [], type: .TEXTFIELD, label: SR.keyBannedCompanies),
-        SettingItem(name: SR.keyCheckWebIcon, placeholder: "", options: ["No", "Yes"], type: .LIST, label: SR.keyCheckWebIcon),
-        SettingItem(name: SR.keyPurgeAudits, placeholder: "", options: [], type: .BUTTON, label: SR.keyPurgeAudits),
-        SettingItem(name: SR.keyEndpoint, placeholder: "", options: [], type: .TEXTFIELD, label: SR.keyEndpoint)
+            SettingItem(name: SR.keyTraceLevel, placeholder: SR.keyTraceLevel, options: ["0", "1", "2", "3", "4"], type: .LIST, label: SR.keyTraceLevel),
+            SettingItem(name: SR.keyBannedCompanies, placeholder: "", options: [], type: .TEXTFIELD, label: SR.keyBannedCompanies),
+            SettingItem(name: SR.keyCheckWebIcon, placeholder: "", options: ["No", "Yes"], type: .LIST, label: SR.keyCheckWebIcon),
+	    SettingItem(name: SR.keyEndpoint, placeholder: "", options: [], type: .TEXTFIELD, label: SR.keyEndpoint),
+            SettingItem(name: SR.keyPurgeAudits, placeholder: "", options: [], type: .BUTTON, label: SR.keyPurgeAudits)
 	];
 	
 	init(loggedIn : Bool = false) {
